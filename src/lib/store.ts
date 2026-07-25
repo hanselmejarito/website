@@ -3,9 +3,11 @@ import { products } from "@/lib/products";
 
 export function formatPrice(money: { amount: string; currencyCode: string }) {
   const amount = parseFloat(money.amount);
-  return new Intl.NumberFormat("en-US", {
+  return new Intl.NumberFormat(money.currencyCode === "PHP" ? "en-PH" : "en-US", {
     style: "currency",
     currency: money.currencyCode,
+    minimumFractionDigits: money.currencyCode === "PHP" ? 0 : 2,
+    maximumFractionDigits: money.currencyCode === "PHP" ? 0 : 2,
   }).format(amount);
 }
 
@@ -27,12 +29,10 @@ export function findVariant(variantId: string) {
 
 const collectionFilters: Record<string, (product: Product) => boolean> = {
   all: () => true,
-  slings: (p) => p.tags.includes("sling"),
-  bags: (p) => p.tags.some((t) => ["sling", "backpack", "messenger"].includes(t)),
-  backpacks: (p) => p.tags.includes("backpack"),
-  messengers: (p) => p.tags.includes("messenger"),
-  accessories: (p) => p.tags.includes("accessory"),
-  shoes: (p) => p.tags.includes("shoes"),
+  jerseys: (p) => p.tags.includes("jersey"),
+  shorts: (p) => p.tags.includes("shorts"),
+  tees: (p) => p.tags.includes("tee"),
+  new: (p) => p.tags.includes("new"),
   sale: (p) =>
     parseFloat(p.compareAtPriceRange.minVariantPrice.amount) >
     parseFloat(p.priceRange.minVariantPrice.amount),
@@ -44,7 +44,7 @@ export function getCollection(handle: string): { title: string; products: Produc
 
   return {
     title: handle.replace(/-/g, " "),
-    products: filtered.length > 0 ? filtered : products,
+    products: handle === "all" || filtered.length > 0 ? filtered : products,
   };
 }
 
@@ -52,11 +52,21 @@ export function getHomepageProducts(): Product[] {
   return products;
 }
 
+export const FREE_SHIPPING_THRESHOLD = 1500;
+
 export function buildOrderMailto(cart: {
-  lines: { quantity: number; merchandise: { product: { title: string }; title: string; selectedOptions: { value: string }[]; price: { amount: string; currencyCode: string } } }[];
+  lines: {
+    quantity: number;
+    merchandise: {
+      product: { title: string };
+      title: string;
+      selectedOptions: { value: string }[];
+      price: { amount: string; currencyCode: string };
+    };
+  }[];
   cost: { subtotalAmount: { amount: string; currencyCode: string } };
 }): string {
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@example.com";
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@honestmistake.ph";
   const lines = cart.lines
     .map((line) => {
       const opts = line.merchandise.selectedOptions.map((o) => o.value).join(", ");
@@ -67,5 +77,5 @@ export function buildOrderMailto(cart: {
   const subtotal = formatPrice(cart.cost.subtotalAmount);
   const body = `Hi, I'd like to order:%0A%0A${lines}%0A%0ASubtotal: ${subtotal}%0A%0APlease confirm availability and payment details.`;
 
-  return `mailto:${email}?subject=${encodeURIComponent("Order inquiry")}&body=${body}`;
+  return `mailto:${email}?subject=${encodeURIComponent("Honest Mistake order inquiry")}&body=${body}`;
 }

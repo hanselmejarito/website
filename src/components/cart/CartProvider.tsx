@@ -12,7 +12,7 @@ import type { Cart, CartLine } from "@/types/store";
 import { findVariant } from "@/lib/store";
 import { CartDrawer } from "./CartDrawer";
 
-const CART_KEY = "local_cart";
+const CART_KEY = "hm_cart_v1";
 
 type CartContextType = {
   cart: Cart | null;
@@ -37,8 +37,8 @@ function emptyCart(): Cart {
   return {
     totalQuantity: 0,
     cost: {
-      subtotalAmount: { amount: "0", currencyCode: "USD" },
-      totalAmount: { amount: "0", currencyCode: "USD" },
+      subtotalAmount: { amount: "0", currencyCode: "PHP" },
+      totalAmount: { amount: "0", currencyCode: "PHP" },
     },
     lines: [],
   };
@@ -51,7 +51,7 @@ function recalculate(lines: CartLine[]): Cart {
     0
   );
   const amount = subtotal.toFixed(2);
-  const currencyCode = activeLines[0]?.merchandise.price.currencyCode ?? "USD";
+  const currencyCode = activeLines[0]?.merchandise.price.currencyCode ?? "PHP";
 
   return {
     lines: activeLines,

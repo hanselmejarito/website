@@ -1,74 +1,31 @@
 export const navigation = [
   {
-    label: "New & Featured",
-    href: "/collections/new-drops",
-    featured: [
-      { label: "Watch Party Slings", href: "/collections/slings", image: null },
-      { label: "Bag Finder Quiz", href: "/bag-finder", image: null },
-    ],
+    label: "Shop",
+    href: "/collections/all",
     groups: [
       {
         title: "Collections",
         links: [
-          { label: "New Drops", href: "/collections/new-drops" },
-          { label: "Reflective Bags & Gear", href: "/collections/reflective" },
-          { label: "Waterproof Gear", href: "/collections/waterproof" },
-          { label: "Top Sellers", href: "/collections/best-sellers" },
+          { label: "All Pieces", href: "/collections/all" },
+          { label: "Jerseys", href: "/collections/jerseys" },
+          { label: "Shorts", href: "/collections/shorts" },
+          { label: "New Drop", href: "/collections/new" },
+          { label: "Sale", href: "/collections/sale" },
         ],
       },
     ],
   },
   {
-    label: "Bags",
-    href: "/collections/bags",
-    groups: [
-      {
-        title: "By style",
-        links: [
-          { label: "All Bags", href: "/collections/bags" },
-          { label: "Backpacks", href: "/collections/backpacks" },
-          { label: "Messengers", href: "/collections/messengers" },
-          { label: "Slings", href: "/collections/slings" },
-          { label: "Totes", href: "/collections/totes" },
-        ],
-      },
-    ],
+    label: "Jerseys",
+    href: "/collections/jerseys",
   },
   {
-    label: "Slings",
-    href: "/collections/slings",
+    label: "Shorts",
+    href: "/collections/shorts",
   },
   {
-    label: "Accessories",
-    href: "/collections/accessories",
-    groups: [
-      {
-        title: "By style",
-        links: [
-          { label: "All Accessories", href: "/collections/accessories" },
-          { label: "Organizers & Pouches", href: "/collections/organizers" },
-          { label: "Keychains & Buckles", href: "/collections/keychains" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Shoes",
-    href: "/collections/shoes",
-    groups: [
-      {
-        title: "By style",
-        links: [
-          { label: "All Shoes", href: "/collections/shoes" },
-          { label: "Sneakers", href: "/collections/sneakers" },
-          { label: "Boots", href: "/collections/boots" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Sale",
-    href: "/collections/sale",
+    label: "New Drop",
+    href: "/#drop",
   },
 ] as const;
 
@@ -76,105 +33,114 @@ export const footerLinks = {
   support: [
     { label: "Shipping", href: "/pages/shipping" },
     { label: "Returns", href: "/pages/returns" },
-    { label: "Warranty", href: "/pages/warranty" },
-    { label: "FAQs", href: "/pages/faq" },
-    { label: "Contact Us", href: "/pages/contact" },
+    { label: "Size Guide", href: "/pages/materials" },
+    { label: "Contact", href: "/pages/contact" },
   ],
   company: [
     { label: "Our Story", href: "/pages/about" },
-    { label: "Blog Stories", href: "/blog" },
+    { label: "Craft & Materials", href: "/pages/materials" },
     { label: "Careers", href: "/pages/careers" },
   ],
   resources: [
-    { label: "Privacy Statement", href: "/pages/privacy" },
-    { label: "Terms of Use", href: "/pages/terms" },
-    { label: "Sitemap", href: "/sitemap" },
+    { label: "Privacy", href: "/pages/privacy" },
+    { label: "Terms", href: "/pages/terms" },
   ],
 };
 
-export const heroSlides = [
-  {
-    id: "slings",
-    title: "Slings Built for Match-Day Meetups",
-    subtitle: "Watch Party Ready",
-    cta: "Sling It",
-    href: "/collections/slings",
-    image:
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1920&q=80",
-  },
-  {
-    id: "barrage",
-    title: "Barrage 18L & 22L Packs",
-    subtitle: "Built to Carry More",
-    cta: "Load it Up",
-    href: "/collections/backpacks",
-    image:
-      "https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?w=1920&q=80",
-  },
+export const socialLinks = [
+  { label: "Instagram", href: "https://instagram.com/honestmistake" },
+  { label: "TikTok", href: "https://tiktok.com/@honestmistake" },
+  { label: "Facebook", href: "https://facebook.com/honestmistake" },
 ];
 
-export const categoryTiles = [
-  {
-    label: "Slings",
-    href: "/collections/slings",
-    image:
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80",
-  },
-  {
-    label: "Add-Ons",
-    href: "/collections/accessories",
-    image:
-      "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=800&q=80",
-  },
-  {
-    label: "Pack It Up",
-    href: "/collections/backpacks",
-    image:
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
-  },
+export const paymentMethods = ["GCash", "Maya", "Bank Transfer", "COD"];
+
+export const hero = {
+  brand: "Honest Mistake",
+  kicker: "マニラ · Limited Run",
+  headline: "Wear the mistake.",
+  support:
+    "Race mesh. Bold prints. Built from city heat — when a drop is gone, it’s gone.",
+  cta: "Shop the drop",
+  href: "/#drop",
+  image: "/products/jersey-closeup.jpg",
+  imageAlt: "Honest Mistake Akira Project race jersey mesh close-up",
+};
+
+export const marqueeItems = [
+  "Honest Mistake",
+  "マニラ",
+  "Akira Project",
+  "アキラ プロジェクト",
+  "Limited drops",
+  "Race mesh",
+  "Wear it loud",
+  "Run for the title",
 ];
 
-export const testimonials = [
-  {
-    quote:
-      "This bag is so dope! Great size, bomber construction, a+ design.",
-    author: "Forever O.",
-  },
-  {
-    quote:
-      "The lifetime guarantee is the REAL DEAL. I love this new messenger bag. It is perfect!",
-    author: "Nancy B.",
-  },
-  {
-    quote:
-      "I love the waterproofness and how versatile this bag is. Your back will break before the bag.",
-    author: "John H.",
-  },
-  {
-    quote:
-      "Super comfy, insane durability, and perfect functionality.",
-    author: "Owen E.",
-  },
+export const dropLinks = [
+  { label: "All", href: "/collections/all" },
+  { label: "Jerseys", href: "/collections/jerseys" },
+  { label: "Shorts", href: "/collections/shorts" },
+  { label: "Sale", href: "/collections/sale" },
 ];
 
-export const lifestyleTiles = [
-  {
-    label: "Reflect",
-    href: "/collections/reflective",
-    image:
-      "https://images.unsplash.com/photo-1485217988980-11786ced9454?w=800&q=80",
-  },
-  {
-    label: "Commute",
-    href: "/collections/backpacks",
-    image:
-      "https://images.unsplash.com/photo-1511994298241-608e28f14fde?w=800&q=80",
-  },
-  {
-    label: "Repel",
-    href: "/collections/waterproof",
-    image:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&q=80",
-  },
+export const featuredSpotlight = {
+  eyebrow: "Latest Drop",
+  title: "Akira Project",
+  titleJp: "アキラ プロジェクト",
+  body: "Motocross-inspired mesh with full racing trim — CHAMP box print, checkered flags, and the SUPREMACY back hit. Lightweight. Breathable. Built for the metro grind.",
+  cta: "Shop Akira",
+  href: "/products/race-jersey-black",
+  price: "₱850",
+  meta: "V1 · Black / White",
+  image: "/products/jersey-grid.jpg",
+  imageAlt: "Akira Project jersey — front and back with Supremacy print",
+};
+
+export const craft = {
+  title: "Born from the honest ones.",
+  body: "Honest Mistake turns street noise into limited pieces that hold their own. No restocks. No filler drops.",
+  cta: "Our story",
+  href: "/pages/about",
+  image: "/products/jersey-grid.jpg",
+  imageAlt: "Honest Mistake Akira Project race jersey look",
+};
+
+export const trustItems = [
+  { label: "Free shipping", detail: "Orders ₱1,500+" },
+  { label: "Limited runs", detail: "No restocks" },
+  { label: "Pay your way", detail: "GCash · Maya · COD" },
+  { label: "PH based", detail: "Ships nationwide" },
 ];
 
+export const collectionMeta: Record<
+  string,
+  { title: string; description: string; image: string }
+> = {
+  all: {
+    title: "All pieces",
+    description: "Every Honest Mistake drop — jerseys, shorts, and what’s out now.",
+    image: "/products/jersey-grid.jpg",
+  },
+  jerseys: {
+    title: "Jerseys",
+    description: "Race-inspired mesh built for motion and heat.",
+    image: "/products/jersey-closeup.jpg",
+  },
+  shorts: {
+    title: "Shorts",
+    description: "Light mesh, loud prints, everyday rotation.",
+    image: "/products/shorts.jpg",
+  },
+  new: {
+    title: "New drop",
+    description: "Akira Project — out now.",
+    image: "/products/akira-v1-white.jpg",
+  },
+  sale: {
+    title: "Sale",
+    description: "Marked down while stocks last.",
+    image: "/products/shorts.jpg",
+  },
+};

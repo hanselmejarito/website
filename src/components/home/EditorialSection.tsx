@@ -1,27 +1,49 @@
 import Image from "next/image";
+import { craft } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
 
 export function EditorialSection() {
   return (
-    <section className="relative min-h-[400px] lg:min-h-[500px] overflow-hidden">
-      <Image
-        src="https://images.unsplash.com/photo-1485217988980-11786ced9454?w=1920&q=80"
-        alt="Editorial"
-        fill
-        className="object-cover"
-        sizes="100vw"
-      />
-      <div className="absolute inset-0 bg-black/50" />
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[400px] lg:min-h-[500px] text-center text-chrome-white px-4">
-        <p className="text-xs font-bold uppercase tracking-widest mb-2 opacity-80">
-          Chrome x J. Prince
-        </p>
-        <h2 className="text-3xl lg:text-5xl font-black uppercase tracking-tight mb-6">
-          Ride With Pride
-        </h2>
-        <Button href="/collections/pride" variant="outline">
-          Shop Collection
-        </Button>
+    <section className="relative min-h-[78vh] overflow-hidden bg-ink lg:min-h-[85vh]">
+      <div className="absolute inset-0">
+        <Image
+          src={craft.image}
+          alt=""
+          fill
+          aria-hidden
+          className="object-cover object-[70%_35%] opacity-40 saturate-[0.9] contrast-[1.05] animate-slow-drift"
+          sizes="100vw"
+          quality={90}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/88 to-ink/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-ink/60" />
+        <div className="noise-layer" aria-hidden />
+      </div>
+
+      <div className="relative z-10 flex min-h-[78vh] flex-col justify-end px-5 pb-16 pt-24 sm:px-8 lg:min-h-[85vh] lg:justify-center lg:px-12 lg:pb-24">
+        <div className="max-w-xl">
+          <div className="race-line mb-8 w-16" aria-hidden />
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-signal-bright">
+            The brand
+          </p>
+          <h2 className="mt-5 font-display text-display-lg text-canvas-white text-balance">
+            {craft.title}
+          </h2>
+          <p className="mt-6 max-w-md text-base leading-relaxed text-canvas-white/70 sm:text-lg">
+            {craft.body}
+          </p>
+
+          <div className="mt-10">
+            <Button
+              href={craft.href}
+              variant="link"
+              className="border-canvas-white/40 pb-1 text-canvas-white hover:border-signal hover:text-signal"
+            >
+              {craft.cta}
+              <span aria-hidden>→</span>
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   );
